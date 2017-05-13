@@ -1,0 +1,32 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/calculator_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.android.calculator2.CalculatorPadViewPager
+        android:id="@+id/pad_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/calculator_pad_numeric" />
+            <include layout="@layout/calculator_pad_operator_one_col" />
+
+        </LinearLayout>
+
+        <include layout="@layout/calculator_pad_advanced" />
+
+    </com.android.calculator2.CalculatorPadViewPager>
+
+</LinearLayout>
