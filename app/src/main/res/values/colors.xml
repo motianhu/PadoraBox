@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="permission_tips_title_text_color">#B8B8B8</color>
+    <color name="permission_tips_content_text_color">#6974A0</color>
+
+
+    <color name="colorRulerViewScale">#070705</color>
+    <color name="colorRulerViewPointer">#070705</color>
+    <color name="colorRulerViewLabel">#070705</color>
+    <color name="colorRulerViewBackground">#FAC331</color>
+</resources>

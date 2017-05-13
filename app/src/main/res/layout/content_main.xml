@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/main_activity_bg"
+        android:dither="true"
+        android:orientation="vertical">
+
+        <GridView
+            android:id="@+id/mainGrid"
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="100.0"
+            android:columnWidth="100.0dip"
+            android:descendantFocusability="afterDescendants"
+            android:gravity="center"
+            android:horizontalSpacing="0.0dip"
+            android:numColumns="auto_fit"
+            android:paddingTop="20.0dip"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="20.0dip" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
