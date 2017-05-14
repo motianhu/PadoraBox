@@ -10,6 +10,7 @@
     <string name="flashlight">手电筒</string>
     <string name="compass">指南针</string>
     <string name="ruler">标尺</string>
+    <string name="calculator">计算器</string>
 
     <string name="ruler_view_default_text">两个手指来测量</string>
 </resources>

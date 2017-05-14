@@ -20,6 +20,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
 import android.view.View;
+
+import com.smona.app.tools.R;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;

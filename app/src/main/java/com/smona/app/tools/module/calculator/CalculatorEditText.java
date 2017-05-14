@@ -33,6 +33,8 @@ import android.view.MotionEvent;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.smona.app.tools.R;
+
 public class CalculatorEditText extends EditText {
 
     private final static ActionMode.Callback NO_SELECTION_ACTION_MODE_CALLBACK =
@@ -79,17 +81,9 @@ public class CalculatorEditText extends EditText {
 
     public CalculatorEditText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-
-        final TypedArray a = context.obtainStyledAttributes(
-                attrs, R.styleable.CalculatorEditText, defStyle, 0);
-        mMaximumTextSize = a.getDimension(
-                R.styleable.CalculatorEditText_maxTextSize, getTextSize());
-        mMinimumTextSize = a.getDimension(
-                R.styleable.CalculatorEditText_minTextSize, getTextSize());
-        mStepTextSize = a.getDimension(R.styleable.CalculatorEditText_stepTextSize,
-                (mMaximumTextSize - mMinimumTextSize) / 3);
-
-        a.recycle();
+        mMaximumTextSize = getTextSize();
+        mMinimumTextSize = getTextSize();
+        mStepTextSize =(mMaximumTextSize - mMinimumTextSize) / 3;
 
         setCustomSelectionActionModeCallback(NO_SELECTION_ACTION_MODE_CALLBACK);
         if (isFocusable()) {

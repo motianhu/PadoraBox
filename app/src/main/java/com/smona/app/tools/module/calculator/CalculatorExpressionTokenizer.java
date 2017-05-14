@@ -18,6 +18,8 @@ package com.smona.app.tools.module.calculator;
 
 import android.content.Context;
 
+import com.smona.app.tools.R;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;

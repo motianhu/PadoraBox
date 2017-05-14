@@ -23,17 +23,17 @@
     android:background="@color/display_background_color"
     android:elevation="4dip">
 
-    <com.smona.app.tools.module.calculator..CalculatorEditText
+    <com.smona.app.tools.module.calculator.CalculatorEditText
         android:id="@+id/formula"
-        style="@style/DisplayEditTextStyle.Formula"
+        style="@style/DisplayEditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text|textNoSuggestions"
         android:textColor="@color/display_formula_text_color" />
 
-    <com.smona.app.tools.module.calculator..CalculatorEditText
+    <com.smona.app.tools.module.calculator.CalculatorEditText
         android:id="@+id/result"
-        style="@style/DisplayEditTextStyle.Result"
+        style="@style/DisplayEditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/formula"

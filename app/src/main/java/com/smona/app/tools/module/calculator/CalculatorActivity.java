@@ -1,9 +1,4 @@
 /*
-* Copyright (C) 2014 MediaTek Inc.
-* Modification based on code covered by the mentioned copyright
-* and/or permission notice(s).
-*/
-/*
  * Copyright (C) 2014 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,17 +24,12 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
+import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
-import android.text.InputFilter;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -51,16 +41,14 @@ import android.view.ViewGroupOverlay;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.smona.app.tools.R;
 
-public class CalculatorActivity extends AppCompatActivity
+
+public class CalculatorActivity extends Activity
         implements CalculatorEditText.OnTextSizeChangeListener, CalculatorExpressionEvaluator.EvaluateCallback, OnLongClickListener {
 
     private static final String NAME = CalculatorActivity.class.getName();
-    /// M: limit the max input len
-    private static final int MAX_INPUT_CHARACTERS = 100;
 
     // instance state keys
     private static final String KEY_CURRENT_STATE = NAME + "_currentState";
@@ -161,60 +149,6 @@ public class CalculatorActivity extends AppCompatActivity
         mFormulaEditText.addTextChangedListener(mFormulaTextWatcher);
         mFormulaEditText.setOnKeyListener(mFormulaOnKeyListener);
         mFormulaEditText.setOnTextSizeChangeListener(this);
-        /** M: add input length limitation @{ */
-        mFormulaEditText.setFilters(new InputFilter[] {
-                new InputFilter.LengthFilter(MAX_INPUT_CHARACTERS) {
-                    private static final int MAX_SUCCESSIVE_DIGITS = 10;
-
-                    @Override
-                    public CharSequence filter(CharSequence source, int start, int end,
-                            Spanned dest,
-                            int dstart, int dend) {
-                        if (mCurrentState == CalculatorState.INPUT) {
-                            int keep = getMax() - (dest.length() - (dend - dstart));
-                            if (keep >= end - start) {
-                                if (TextUtils.isDigitsOnly(source)) {
-                                    int digitKeep = MAX_SUCCESSIVE_DIGITS
-                                            - (getCountLen(dest, dstart, dend) - (dend - dstart));
-                                    if (digitKeep >= end - start) {
-                                        return null;
-                                    } else {
-                                        mHandler.removeMessages(MAX_DIGITS_ALERT);
-                                        mHandler.sendEmptyMessageDelayed(MAX_DIGITS_ALERT, TOAST_INTERVAL);
-                                        vibrate();
-                                        return "";
-                                    }
-                                } else {
-                                    return null;
-                                }
-                            } else {
-                                mHandler.removeMessages(MAX_INPUT_ALERT);
-                                mHandler.sendEmptyMessageDelayed(MAX_INPUT_ALERT, TOAST_INTERVAL);
-                                vibrate();
-                                return "";
-                            }
-                        } else {
-                            return null;
-                        }
-                    }
-
-                    private int getCountLen(Spanned str, int start, int end) {
-                        int len = str.length();
-                        for (int i = len - 1; i > 0; i--) {
-                            if (!Character.isDigit(str.charAt(i))) {
-                                if (start <= i && i <= end) {
-                                    continue;
-                                } else {
-                                    len = len - (i + 1);
-                                    break;
-                                }
-                            }
-                        }
-                        return len;
-                    }
-                }
-        });
-        /** @} */
         mDeleteButton.setOnLongClickListener(this);
     }
 
@@ -452,21 +386,13 @@ public class CalculatorActivity extends AppCompatActivity
             return;
         }
 
-        /** M: [ALPS01798852] Cannot start this animator on a detached or null view @{ */
-        if (mEqualButton != null && mEqualButton.isAttachedToWindow()) {
-            reveal(mEqualButton, R.color.calculator_error_color,
-                    new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            setState(CalculatorState.ERROR);
-                            mResultEditText.setText(errorResourceId);
-                        }
-                    });
-        } else {
-            mResultEditText.setText(errorResourceId);
-            return;
-        }
-        /** @} */
+        reveal(mEqualButton, R.color.calculator_error_color, new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                setState(CalculatorState.ERROR);
+                mResultEditText.setText(errorResourceId);
+            }
+        });
     }
 
     private void onResult(final String result) {
@@ -531,34 +457,4 @@ public class CalculatorActivity extends AppCompatActivity
         mCurrentAnimator = animatorSet;
         animatorSet.start();
     }
-
-    /** M: vibrate when input more than limited @{ */
-    protected final static int MAX_DIGITS_ALERT = 0;
-    protected final static int MAX_INPUT_ALERT = 1;
-    protected final static int TOAST_INTERVAL = 500;
-    private Handler mHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MAX_DIGITS_ALERT:
-                    Toast.makeText(CalculatorActivity.this, R.string.max_digits_alert,
-                            Toast.LENGTH_SHORT).show();
-                    break;
-                case MAX_INPUT_ALERT:
-                    Toast.makeText(CalculatorActivity.this, R.string.max_input_alert,
-                            Toast.LENGTH_SHORT).show();
-                    break;
-                default:
-                    throw new IllegalArgumentException("Invalid message.what = "
-                            + msg.what);
-            }
-        };
-    };
-
-    public void vibrate() {
-        Vibrator vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-        if (vibrator.hasVibrator()) {
-            vibrator.vibrate(new long[] { 100, 100 }, -1);
-        }
-    }
-    /** @} */
 }

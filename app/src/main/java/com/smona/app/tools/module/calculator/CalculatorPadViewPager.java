@@ -23,6 +23,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.smona.app.tools.R;
+
 public class CalculatorPadViewPager extends ViewPager {
 
     private final PagerAdapter mStaticPagerAdapter = new PagerAdapter() {
@@ -100,7 +102,7 @@ public class CalculatorPadViewPager extends ViewPager {
         setAdapter(mStaticPagerAdapter);
         setBackgroundColor(getResources().getColor(android.R.color.black));
         setOnPageChangeListener(mOnPageChangeListener);
-        setPageMargin(getResources().getDimensionPixelSize(R.dimen.pad_page_margin));
+        //setPageMargin(getResources().getDimensionPixelSize(R.dimen.pad_page_margin));
         setPageTransformer(false, mPageTransformer);
     }
 

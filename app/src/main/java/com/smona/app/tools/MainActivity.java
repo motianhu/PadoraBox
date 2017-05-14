@@ -12,6 +12,7 @@ import android.widget.GridView;
 import com.smona.app.tools.module.CompassActivity;
 import com.smona.app.tools.module.FlashLightActivity;
 import com.smona.app.tools.module.RulerActivity;
+import com.smona.app.tools.module.calculator.CalculatorActivity;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
         ruler.gotoClazz =  RulerActivity.class;
         ruler.title = getResources().getString(R.string.ruler);
         mApps.add(ruler);
+
+        ModuleInfo calculator = new ModuleInfo();
+        calculator.gotoClazz =  CalculatorActivity.class;
+        calculator.title = getResources().getString(R.string.calculator);
+        mApps.add(calculator);
 
         ModuleAdapter adapter = new ModuleAdapter(this, mApps);
         mGrid.setAdapter(adapter);

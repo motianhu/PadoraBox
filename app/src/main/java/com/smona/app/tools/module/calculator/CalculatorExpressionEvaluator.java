@@ -16,6 +16,8 @@
 
 package com.smona.app.tools.module.calculator;
 
+import com.smona.app.tools.R;
+
 import org.javia.arity.Symbols;
 import org.javia.arity.SyntaxException;
 import org.javia.arity.Util;

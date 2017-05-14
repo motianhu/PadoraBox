@@ -49,10 +49,7 @@ public class CalculatorExpressionBuilder extends SpannableStringBuilder {
                 case '.':
                     // don't allow two decimals in the same number
                     final int index = expr.lastIndexOf('.');
-                    if (index >= start) {
-                        appendExpr = "";
-                    } else if (index != -1 &&
-                               TextUtils.isDigitsOnly(expr.substring(index + 1, start))) {
+                    if (index != -1 && TextUtils.isDigitsOnly(expr.substring(index + 1, start))) {
                         appendExpr = "";
                     }
                     break;

@@ -54,7 +54,6 @@
             android:name=".module.RulerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".module.calculator.CalculatorActivity"
             android:screenOrientation="portrait"
