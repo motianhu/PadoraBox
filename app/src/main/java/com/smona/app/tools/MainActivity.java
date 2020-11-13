@@ -2,17 +2,17 @@ package com.smona.app.tools;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.smona.app.tools.module.CompassActivity;
-import com.smona.app.tools.module.FlashLightActivity;
-import com.smona.app.tools.module.RulerActivity;
-import com.smona.app.tools.module.calculator.CalculatorActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.smona.padora.tools.module.CompassActivity;
+import com.smona.padora.tools.module.FlashLightActivity;
+import com.smona.padora.tools.module.RulerActivity;
+import com.smona.padora.tools.module.calculator.CalculatorActivity;
+import com.smona.tools.compress.ImageCompressActivity;
 
 import java.util.ArrayList;
 
@@ -28,10 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
+        fab.setOnClickListener(view -> {
         });
 
         mGrid = (GridView) findViewById(R.id.mainGrid);
@@ -58,14 +55,16 @@ public class MainActivity extends AppCompatActivity {
         calculator.title = getResources().getString(R.string.calculator);
         mApps.add(calculator);
 
+        ModuleInfo imagecompress = new ModuleInfo();
+        imagecompress.gotoClazz =  ImageCompressActivity.class;
+        imagecompress.title = getResources().getString(R.string.imagecompress);
+        mApps.add(imagecompress);
+
         ModuleAdapter adapter = new ModuleAdapter(this, mApps);
         mGrid.setAdapter(adapter);
-        mGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ModuleInfo module = mApps.get(position);
-                gotoActivity(module);
-            }
+        mGrid.setOnItemClickListener((parent, view, position, id) -> {
+            ModuleInfo module = mApps.get(position);
+            gotoActivity(module);
         });
     }
 

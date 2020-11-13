@@ -1,1 +1,3 @@
+include ':imagecompress'
+include ':tools'
 include ':app'

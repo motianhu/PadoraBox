@@ -43,17 +43,16 @@ public class ModuleAdapter extends BaseAdapter {
         ModuleInfo info = mApps.get(position);
         ViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.module_item, null);
+            convertView = LayoutInflater.from(mContext).inflate(com.smona.padora.tools.R.layout.module_item, null);
             holder = new ViewHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.title);
-            holder.image = (ImageView) convertView.findViewById(R.id.image);
+            holder.title = (TextView) convertView.findViewById(com.smona.padora.tools.R.id.title);
+            holder.image = (ImageView) convertView.findViewById(com.smona.padora.tools.R.id.image);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         holder.title.setText(info.title);
-//        holder.image.setText("position: " + position);
         return convertView;
     }
 
