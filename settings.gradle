@@ -1,3 +1,4 @@
+include ':opendoor'
 include ':imagecompress'
 include ':tools'
 include ':app'

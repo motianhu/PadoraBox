@@ -1,0 +1,10 @@
+<resources>
+    <style name="AppTheme.Toolbar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+    </style>
+</resources>

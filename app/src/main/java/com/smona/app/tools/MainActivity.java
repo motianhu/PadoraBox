@@ -12,6 +12,7 @@ import com.smona.padora.tools.module.CompassActivity;
 import com.smona.padora.tools.module.FlashLightActivity;
 import com.smona.padora.tools.module.RulerActivity;
 import com.smona.padora.tools.module.calculator.CalculatorActivity;
+import com.smona.tool.opendoor.BluetoothActivity;
 import com.smona.tools.compress.ImageCompressActivity;
 
 import java.util.ArrayList;
@@ -59,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
         imagecompress.gotoClazz =  ImageCompressActivity.class;
         imagecompress.title = getResources().getString(R.string.imagecompress);
         mApps.add(imagecompress);
+
+        ModuleInfo bluetooth = new ModuleInfo();
+        bluetooth.gotoClazz =  BluetoothActivity.class;
+        bluetooth.title = getResources().getString(R.string.bluetooth);
+        mApps.add(bluetooth);
 
         ModuleAdapter adapter = new ModuleAdapter(this, mApps);
         mGrid.setAdapter(adapter);

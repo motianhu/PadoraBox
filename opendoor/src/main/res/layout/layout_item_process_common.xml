@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/dimen_12dp"
+    android:paddingEnd="@dimen/dimen_12dp">
+
+    <include
+        android:id="@+id/divider"
+        layout="@layout/divider_split_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_57dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/dimen_3dp"
+        android:layout_marginStart="@dimen/dimen_12dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/divider"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_txt_black"
+            android:textSize="@dimen/font_15" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_A4A9AF"
+            android:textSize="@dimen/font_12" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/bg_1aff5f50_13_corner"
+        android:paddingStart="@dimen/dimen_17dp"
+        android:paddingTop="@dimen/dimen_6dp"
+        android:paddingEnd="@dimen/dimen_17dp"
+        android:paddingBottom="@dimen/dimen_6dp"
+        android:text="@string/goto_startup_bluetooth"
+        android:textColor="@color/color_FF5F50"
+        android:textSize="@dimen/font_12" />
+
+    <View
+        android:id="@+id/action_ok"
+        android:layout_width="@dimen/dimen_19dp"
+        android:layout_marginTop="@dimen/dimen_4dp"
+        android:layout_alignParentEnd="true"
+        android:layout_height="@dimen/dimen_19dp"
+        android:background="@drawable/confirm_icon_pitch_on"/>
+</RelativeLayout>

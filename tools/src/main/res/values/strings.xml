@@ -12,6 +12,7 @@
     <string name="ruler">标尺</string>
     <string name="calculator">计算器</string>
     <string name="imagecompress">图片压缩</string>
+    <string name="bluetooth">蓝牙开门</string>
 
     <string name="ruler_view_default_text">两个手指来测量</string>
 </resources>

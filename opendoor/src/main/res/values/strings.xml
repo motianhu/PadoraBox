@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="goto_startup_bluetooth">去开启</string>
+    <string name="unlock_notification_title">Mobile Access is running 1</string>
+    <string name="notification_channel_name_informative">Running foreground scan service 1</string>
+</resources>

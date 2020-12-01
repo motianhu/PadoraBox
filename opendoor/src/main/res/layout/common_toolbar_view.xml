@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    style="@style/AppTheme.Toolbar"
+    app:layout_collapseMode="pin">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dimen_60dp"
+            android:layout_height="@dimen/dimen_60dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@drawable/return_icon_black" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:paddingStart="@dimen/dimen_80dp"
+            android:paddingEnd="@dimen/dimen_80dp"
+            android:singleLine="true"
+            android:textColor="@color/color_222A37"
+            android:textSize="@dimen/font_17" />
+
+
+        <ImageView
+            android:id="@+id/rightAction1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/rightAction"
+            android:padding="@dimen/dimen_6dp"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/rightAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dimen_6dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_right_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:textColor="@color/common_main"
+            android:textSize="@dimen/font_17"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</androidx.appcompat.widget.Toolbar>
+
