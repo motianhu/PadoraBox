@@ -126,7 +126,7 @@ public class BluetoothActivity extends Activity implements IActionCallback, ICli
         bleStartupContainer.startStepTwo(BleStartupContainer.INIT);
         bleStartupContainer.startStepThree(BleStartupContainer.INIT);
         bleOpenDoorContainer = findViewById(R.id.open_door);
-
+        bleOpenDoorContainer.executeUnLocking(2);
         actionExecutor = new ChainsExecutor();
         actionExecutor.buildChains();
     }

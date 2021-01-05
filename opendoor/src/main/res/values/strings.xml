@@ -4,4 +4,8 @@
     <string name="goto_startup_bluetooth">去开启</string>
     <string name="unlock_notification_title">Mobile Access is running 1</string>
     <string name="notification_channel_name_informative">Running foreground scan service 1</string>
+    <string name="open_bluetooth_tips">请将手机靠近门锁</string>
+    <string name="open_bluetooth_tips_failed">开门失败 <font color="#2C80FF">重新开门</font></string>
+    <string name="open_bluetooth_tips_success">开门成功<font color="#FF5F50">3</font>秒后自动返回首页</string>
+    <string name="open_bluetooth_tips_unlocking">请在<font color="#FF5F50">%s</font>内完成开门，否则需重新认证</string>
 </resources>

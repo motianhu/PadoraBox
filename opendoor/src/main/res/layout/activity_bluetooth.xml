@@ -62,6 +62,7 @@
         android:paddingStart="@dimen/dimen_15dp"
         android:paddingTop="@dimen/dimen_19dp"
         android:paddingEnd="@dimen/dimen_15dp"
+        android:visibility="gone"
         android:paddingBottom="@dimen/dimen_23dp">
 
         <include
@@ -85,54 +86,74 @@
 
     <com.smona.tool.opendoor.widget.BleOpenDoorContainer
         android:id="@+id/open_door"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/dimen_330dp"
         android:layout_height="@dimen/dimen_348dp"
         android:layout_below="@+id/room_date"
+        android:layout_centerHorizontal="true"
+
         android:layout_marginStart="@dimen/dimen_15dp"
         android:layout_marginEnd="@dimen/dimen_15dp"
         android:background="@drawable/bg_white_8_corner"
-        android:padding="@dimen/dimen_15dp"
-        android:visibility="gone">
+        >
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dimen_19dp"
+            android:layout_marginEnd="@dimen/dimen_19dp"
             android:src="@drawable/assa_logo" />
 
         <ImageView
-            android:id="@+id/bluetooth_bg"
-            android:layout_width="168dp"
-            android:layout_height="231dp"
-            android:layout_marginStart="93dp"
-            android:layout_marginTop="@dimen/dimen_33dp"
-            android:src="@drawable/bluetooth_bg" />
+            android:id="@+id/bluetooth_lock"
+            android:layout_width="@dimen/dimen_86dp"
+            android:layout_height="@dimen/dimen_231dp"
+            android:layout_marginStart="@dimen/dimen_108dp"
+            android:layout_marginTop="@dimen/dimen_48dp"
+            android:src="@drawable/bluetooth_lock" />
 
         <ImageView
+            android:id="@+id/ripper_anim"
             android:layout_width="@dimen/dimen_134dp"
             android:layout_height="@dimen/dimen_134dp"
-            android:layout_marginStart="94dp"
-            android:layout_marginTop="@dimen/dimen_14dp"
+            android:layout_marginStart="@dimen/dimen_99dp"
+            android:layout_marginTop="@dimen/dimen_29dp"
             android:src="@drawable/bluetooth_action" />
+
+        <ImageView
+            android:id="@+id/bluetooth_phone"
+            android:layout_width="@dimen/dimen_164dp"
+            android:layout_height="@dimen/dimen_164dp"
+            android:layout_marginStart="133dp"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:src="@drawable/bluetooth_phone" />
+
+        <ImageView
+            android:id="@+id/lock_hand"
+            android:layout_width="@dimen/dimen_134dp"
+            android:layout_height="@dimen/dimen_19dp"
+            android:layout_marginStart="142dp"
+            android:layout_marginTop="@dimen/dimen_189dp"
+            android:src="@drawable/lock_hand" />
 
         <TextView
             android:id="@+id/open_door_tips"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/bluetooth_bg"
+            android:layout_below="@+id/bluetooth_lock"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dimen_15dp"
-            android:text="请将手机靠近门锁"
+            android:text="@string/open_bluetooth_tips"
             android:textColor="@color/color_222A37"
-            android:textSize="@dimen/font_12" />
+            android:textSize="@dimen/font_13" />
 
         <TextView
             android:id="@+id/count_down_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/open_door_tips"
             android:layout_centerHorizontal="true"
-            android:text="内完成开门，否则需重新认证"
+            android:layout_marginTop="@dimen/dimen_8dp"
             android:textColor="@color/color_A4A9AF"
             android:textSize="@dimen/font_12" />
     </com.smona.tool.opendoor.widget.BleOpenDoorContainer>
